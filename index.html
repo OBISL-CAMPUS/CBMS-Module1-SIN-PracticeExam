@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>මොඩියුලය 1 - ප්‍රායෝගික ආදර්ශ පරීක්ෂණය - ව්‍යාපාර සහ කළමනාකරණ මූලධර්ම (සිංහල)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #2b303a;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+
+        /* LMS Button Styles */
+        .btn-lms-green {
+            background: linear-gradient(180deg, #15803d 0%, #0e6027 100%);
+            color: #ffffff;
+            font-weight: 600;
+            border: 1px solid #0a471c;
+            border-radius: 4px;
+            padding: 8px 18px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+        .btn-lms-green:hover, .btn-lms-green:active {
+            background: #0e6027;
+        }
+
+        .btn-lms-cancel {
+            background-color: #ffffff;
+            border: 1px solid #a3a3a3;
+            color: #333333;
+            font-weight: 500;
+            border-radius: 4px;
+            padding: 8px 18px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+        .btn-lms-cancel:hover, .btn-lms-cancel:active {
+            background-color: #f3f4f6;
+        }
+
+        /* Case Study Callout Box */
+        .case-study-box {
+            background-color: #f0f4f8;
+            border: 1px solid #d0dbe5;
+            border-left: 4px solid #0056b3;
+            border-radius: 6px;
+            padding: 12px 14px;
+            margin: 12px 0 18px 0;
+            box-sizing: border-box;
+            line-height: 1.5;
+            font-size: 13.5px;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Radio Option Label for Mobile Touch */
+        .option-label {
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background-color: #ffffff;
+            transition: background 0.15s ease, border-color 0.15s ease;
+            min-height: 48px;
+            touch-action: manipulation;
+        }
+        .option-label:hover, .option-label:active {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .custom-radio {
+            accent-color: #0056b3;
+            width: 22px;
+            height: 22px;
+            margin-top: 1px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen text-gray-800 antialiased relative pb-20">
+
+    <header class="border-b border-gray-200 bg-white px-3 py-3 sm:px-6">
+        <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm text-gray-600">
+            <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-blue-700 hover:underline cursor-pointer"><i class="fa-solid fa-house mr-1"></i> Portfolio</span>
+                <span>&gt;</span>
+                <span class="text-blue-700 hover:underline cursor-pointer truncate max-w-[160px] sm:max-w-none">Certificate in Business Management Skills</span>
+                <span>&gt;</span>
+                <span class="font-semibold text-gray-800 truncate max-w-[200px] sm:max-w-none">Module 1-Practice Mock Exam-Business & Management Principles</span>
+            </div>
+            <div class="text-[11px] bg-gray-100 text-gray-600 px-2 py-1 rounded border border-gray-200">
+                <i class="fa-solid fa-lock text-gray-500 mr-1"></i> CBMS - OBISL CAMPUS
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
+
+        <section id="view-step-1" class="space-y-4 sm:space-y-6">
+            <h1 class="text-lg sm:text-2xl font-bold text-slate-800">
+                Module 1-Practice Mock Exam-Business & Management Principles (Sinhala)
+            </h1>
+
+            <!-- Orange Attempt Warning Bar -->
+            <div class="w-full bg-[#f97316] text-white p-3.5 sm:p-4 rounded-md shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <div class="text-xs sm:text-base font-medium leading-relaxed">
+                    Beware! Only one attempt remaining. By clicking the "Continue" button, a new attempt is recorded.
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-end">
+                    <button onclick="resetToInitial()" class="btn-lms-cancel text-xs sm:text-sm w-1/2 sm:w-auto">
+                        Cancel
+                    </button>
+                    <button onclick="goToStep2()" class="btn-lms-green text-xs sm:text-sm w-1/2 sm:w-auto">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-step-2" class="hidden space-y-6">
+            <h1 class="text-lg sm:text-2xl font-bold text-slate-800">
+                Module 1-Practice Mock Exam-Business & Management Principles
+            </h1>
+
+            <!-- Pre-Exam Warning Card Box -->
+            <div class="bg-gray-100/90 border border-gray-200 rounded-lg p-5 sm:p-8 text-center max-w-2xl mx-auto shadow-xs my-4 sm:my-6">
+                <div class="text-amber-500 text-3xl sm:text-4xl mb-2 sm:mb-3">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h2 class="text-base sm:text-lg font-bold text-gray-800 mb-2">Warning!</h2>
+                <p class="text-gray-700 text-xs sm:text-base max-w-lg mx-auto mb-5 sm:mb-6 leading-relaxed">
+                    You have entered the examination area.<br class="hidden sm:block">
+                    Any parallel action, such as redirecting to a new page or opening a new window, will lead to the automatic cancellation of your attempt.
+                </p>
+                <button onclick="enterExam()" class="btn-lms-green text-sm sm:text-base px-6 py-2.5 w-full sm:w-auto">
+                    Enter the exam <i class="fa-solid fa-right-to-bracket text-xs sm:text-sm ml-1.5"></i>
+                </button>
+            </div>
+
+            <!-- RULES AND GUIDELINES BLOCK -->
+            <div class="exam-guidelines-container max-w-[600px] w-full mx-auto font-sans text-gray-800 leading-normal p-3 border border-gray-200 rounded-lg bg-white shadow-xs">
+                
+                <!-- Sinhala Banner Note -->
+                <div class="reading-time-banner bg-[#e6f0fa] border border-[#b8daff] border-l-4 border-l-[#0056b3] rounded p-2.5 mb-4 text-xs sm:text-sm text-[#004085] text-center">
+                    ⏱️ <strong>සටහන (Note):</strong> මෙම රීති අධ්‍යයනය කිරීමට <strong>මිනිත්තු 2 ක්</strong> වෙන් කරන්න. කියවා අවසන් වූ පසු, පරීක්ෂණය ආරම්භ කිරීමට පිටුවේ ඉහළට යන්න.
+                </div>
+
+                <!-- Header -->
+                <div class="header-section text-center border-b-2 border-[#0056b3] pb-3 mb-4">
+                    <h3 class="text-[11px] sm:text-xs uppercase tracking-wider text-gray-500 font-semibold m-0 mb-1">OBISL Campus</h3>
+                    <h1 class="text-base sm:text-lg text-[#0056b3] font-bold m-0 mb-1 leading-snug">
+                        Core Module 1 - Practice Mock Exam Guidelines<br>
+                        <span class="text-xs sm:text-sm font-normal text-[#0056b3]">(CBMS/CHRM/CMS)</span>
+                    </h1>
+                    <h2 class="text-xs sm:text-sm text-gray-700 font-semibold m-0 mb-2">නිල රීති සහ පටිපාටි (Official Rules &amp; Procedures)</h2>
+                    <span class="inline-block bg-[#e6f0fa] text-[#0056b3] px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase rounded">Certificate Level</span>
+                </div>
+
+                <!-- Stats Table -->
+                <div class="stats-table bg-[#f8f9fa] border border-[#dee2e6] rounded-md mb-4 overflow-hidden text-xs sm:text-sm">
+                    <div class="border-b border-[#dee2e6] p-2.5 flex flex-col">
+                        <span class="font-bold text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-wide">කාලය වෙන්කිරීම (Time Allocation)</span>
+                        <span class="mt-0.5 text-gray-900 font-medium">මිනිත්තු 17 යි (17 minutes total duration).</span>
+                    </div>
+                    <div class="border-b border-[#dee2e6] p-2.5 flex flex-col">
+                        <span class="font-bold text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-wide">පරීක්ෂණ ව්‍යුහය (Test Structure)</span>
+                        <span class="mt-0.5 text-gray-900 font-medium">මොඩියුල 1 | සිද්ධි අධ්‍යයන ප්‍රශ්න 5 ක්</span>
+                    </div>
+                    <div class="p-2.5 flex flex-col">
+                        <span class="font-bold text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-wide">ලකුණු දීමේ ක්‍රමය (Scoring Mechanism)</span>
+                        <span class="mt-0.5 text-gray-900 font-medium">ප්‍රශ්නයකට ලකුණු 1 බැගින් (එකතුව: ලකුණු 5) | සමත් ලකුණ: ලකුණු 2 (40%)</span>
+                    </div>
+                </div>
+
+                <!-- Instructions -->
+                <div class="instructions-section mb-4 text-xs sm:text-sm">
+                    <ul class="list-none p-0 m-0 space-y-2.5">
+                        <li class="flex items-start">
+                            <span class="text-[#0056b3] font-bold mr-2 text-base leading-none">•</span>
+                            <span class="text-gray-700 leading-snug"><strong class="text-gray-900">සමත් වීමේ පරාමිතිය:</strong> විභාගය සමත් වීම සඳහා අවම වශයෙන් 40% ක් (අවම ලකුණු 2/5) ලබා ගත යුතුය.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#0056b3] font-bold mr-2 text-base leading-none">•</span>
+                            <span class="text-gray-700 leading-snug"><strong class="text-gray-900">තනි උපාංග ප්‍රවේශය:</strong> එක් ක්‍රියාකාරී පිවිසුම් සැසියක් පමණක් පවත්වා ගන්න. උපාංග කිහිපයකින් හෝ ටැබ් වලින් පිවිසීමෙන් ඔබගේ උත්සාහය අවලංගු වේ.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#0056b3] font-bold mr-2 text-base leading-none">•</span>
+                            <span class="text-gray-700 leading-snug"><strong class="text-gray-900">තිර නිරීක්ෂණය:</strong> සෑම විටම මෙම පරීක්ෂණ කවුළුවේ රැඳී සිටින්න. වෙනත් පිටුවකට යාම, ටැබ් මාරු කිරීම හෝ බ්‍රවුසරය අවම (minimize) කිරීම ස්වයංක්‍රීයව පරීක්ෂණය අවලංගු වීමට හේතු වේ.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#0056b3] font-bold mr-2 text-base leading-none">•</span>
+                            <span class="text-gray-700 leading-snug"><strong class="text-gray-900">විවෘත පොත් සම්පත්:</strong> පරීක්ෂණය අතරතුර මුද්‍රිත සටහන් හෝ වෙනත් උපාංගයක් භාවිතයෙන් අධ්‍යයන ද්‍රව්‍ය බල හැක. පරීක්ෂණය ආරම්භ කිරීමට පෙර වෙනත් උපාංගයකින් සියලුම සටහන් විවෘත කර තබා ගන්න.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#0056b3] font-bold mr-2 text-base leading-none">•</span>
+                            <span class="text-gray-700 leading-snug"><strong class="text-gray-900">ප්‍රතිඵල:</strong> පරීක්ෂණය ඉදිරිපත් කළ වහාම ඔබගේ ලකුණු ප්‍රමාණය සටහන් වේ.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Critical Note -->
+                <div class="critical-note bg-[#fff8e6] border border-[#ffeeba] border-l-4 border-l-[#ffc107] rounded p-2.5 text-xs text-[#856404]">
+                    <strong class="uppercase block mb-1 text-[10px] tracking-wide text-[#856404]">වැදගත් සටහන (Critical Note):</strong>
+                    <p class="m-0 leading-relaxed">පෝටලය විවෘත කිරීමත් සමඟ නවතා තැබිය නොහැකි ටයිමරයක් ආරම්භ වේ. අවසර දෙනු ලබන්නේ එක් උත්සාහයකට පමණි. ආරම්භ කිරීමට පෙර ස්ථාවර අන්තර්ජාල සබඳතාවයක් ඇති බව තහවුරු කරගන්න.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="view-step-3" class="hidden space-y-6 pb-24">
+            <div class="border-b border-gray-200 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h1 class="text-base sm:text-xl font-bold text-slate-800">
+                    Module 1-Practice Mock Exam-Business & Management Principles
+                </h1>
+                <span class="text-[11px] sm:text-xs bg-blue-50 text-blue-800 border border-blue-200 px-2.5 py-1 rounded font-semibold self-start sm:self-auto">
+                    ප්‍රශ්න 5 යි • මුළු ලකුණු 5 යි
+                </span>
+            </div>
+
+            <form id="exam-form" onsubmit="event.preventDefault(); submitExam();">
+                <!-- QUESTIONS INJECTED DYNAMICALLY -->
+                <div id="questions-container" class="space-y-6 sm:space-y-8"></div>
+
+                <!-- SUBMIT / CANCEL ACTIONS -->
+                <div class="pt-6 border-t border-gray-200 flex flex-row items-center justify-end gap-3">
+                    <button type="button" onclick="triggerCancellationWarning()" class="btn-lms-cancel text-xs sm:text-sm w-1/2 sm:w-auto">
+                        අවලංගු කරන්න (Cancel)
+                    </button>
+                    <button type="button" onclick="submitExam()" class="btn-lms-green text-xs sm:text-sm w-1/2 sm:w-auto">
+                        අවසාන ඉදිරිපත් කිරීම (Final Submission)
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section id="view-step-4" class="hidden space-y-6 max-w-lg mx-auto py-6 text-center">
+            <div class="bg-white border border-gray-200 rounded-lg p-5 sm:p-8 shadow-xs">
+                <div id="score-icon" class="text-4xl sm:text-5xl mb-3 text-emerald-600">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-1.5">Practice Mock Exam Submitted</h2>
+                <p class="text-gray-600 text-xs sm:text-sm mb-5">ඔබගේ පිළිතුරු පද්ධතිය විසින් ඇගයීමට ලක් කර සටහන් කර ගන්නා ලදී.</p>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-lg p-5 mb-5">
+                    <span class="text-[11px] uppercase font-bold tracking-wider text-gray-500 block mb-1">අවසාන ලකුණු ප්‍රමාණය (Final Score Result)</span>
+                    <div id="score-display" class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-1">
+                        0 / 5 Marks
+                    </div>
+                    <div id="percentage-display" class="text-xs sm:text-sm font-semibold text-gray-700">
+                        ප්‍රතිශතය: 0%
+                    </div>
+                    <div id="status-badge" class="mt-3 inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase">
+                        Pass
+                    </div>
+                </div>
+
+                <p class="text-[11px] text-gray-500 mb-5 leading-relaxed">
+                    සටහන: සම්මත විභාග ප්‍රොටෝකෝලය අනුව නිවැරදි පිළිතුරු සඟවා ඇත. පුහුණුව සඳහා ඔබට නැවත මෙම ආදර්ශ පරීක්ෂණයට මුහුණ දිය හැක.
+                </p>
+
+                <button onclick="resetToInitial()" class="btn-lms-green w-full text-xs sm:text-sm py-2.5">
+                    නැවත පරීක්ෂණයට පෙනී සිටින්න (Re-attempt)
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="timer-bar-container" class="hidden fixed bottom-0 left-0 right-0 z-40 bg-[#c2410c] text-white py-2.5 px-3 sm:px-4 shadow-lg border-t border-orange-800">
+        <div class="max-w-4xl mx-auto flex items-center justify-between font-medium text-xs sm:text-sm">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation text-amber-200"></i>
+                <span><strong>ඉතිරි කාලය (Remaining time):</strong> <span id="timer-display">17:00</span></span>
+            </div>
+            <button onclick="triggerCancellationWarning()" class="text-[10px] sm:text-xs bg-black/20 hover:bg-black/40 px-2.5 py-1 rounded text-white/90 border border-white/20 transition">
+                Simulate Violation
+            </button>
+        </div>
+    </div>
+
+    <div id="cancellation-modal" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl max-w-sm w-full p-5 text-center border border-gray-200">
+            <div class="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-orange-100 text-orange-500 text-2xl mb-3">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-base font-bold text-slate-800 mb-1.5">Warning!</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mb-5">
+                Your attempt will be canceled.
+            </p>
+            <button onclick="confirmCancellation()" class="w-full bg-[#0070f3] hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded text-sm transition">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // MODULE 1: SINHALA QUESTION DATABASE
+        const questionsData = [
+            {
+                id: 1,
+                title: "ප්‍රශ්නය 01",
+                subtitle: "(බහුවරණ (තනි පිළිතුර))",
+                questionText: "සම්භාව්‍ය කළමනාකරණ න්‍යායට අනුව, මෙම සමාගම ක්‍රියාවට නංවන්නේ කුමන කළමනාකරණ රාමුවද?",
+                scenario: "ශීඝ්‍රයෙන් වර්ධනය වන ව්‍යවසායයක්, අන්තර්-පුද්ගල හුරු පුරුදුකම මත පදනම්ව පරිපාලනමය කාර්යයන් සිදු කරන සිය ලිහිල්, සබඳතා මත පදනම් වූ ආරම්භක (startup) ප්‍රවේශයෙන් මිදී, වාස්තවික සංවිධාන ව්‍යුහයක් කරා යාමට අපේක්ෂා කරයි. විධායක නායකත්වය විසින් දැඩි ධුරාවලි අණදීමේ දාමයක්, පැහැදිලිව ලිඛිතව දක්වන ලද රීති සහ සම්මත මෙහෙයුම් රෙගුලාසි, විශේෂීකරණය වූ ශ්‍රම විභජනය සහ තහවුරු කරන ලද තාක්ෂණික නිපුණතාවය මත පමණක් පදනම් වූ වෘත්තීය ප්‍රගමනයක් සහිත රාමුවක් දක්වයි.",
+                options: [
+                    "A) හදිසි හෝ අවස්ථානුගත රාමුව (Contingency Framework)",
+                    "B) මැක්ස් වෙබර්ගේ නිලධාරිවාදී කළමනාකරණය (Max Weber's Bureaucratic Management)",
+                    "C) මානව සබඳතා ව්‍යාපාරය (Human Relations Movement)",
+                    "D) මැදිහත් නොවීමේ ව්‍යුහය (Laissez-Faire Architecture)"
+                ],
+                correctAnswer: 1 // Index B
+            },
+            {
+                id: 2,
+                title: "ප්‍රශ්නය 02",
+                subtitle: "(බහුවරණ (තනි පිළිතුර))",
+                questionText: "මෙම ව්‍යුහාත්මක හැරවුම මගින් වඩාත් හොඳින් නිරූපණය වන්නේ කුමන මෙහෙයුම් සුසමාදර්ශය (operational paradigm) වැලඳ ගැනීමද?",
+                scenario: "තරඟකරුවන් විසින් එක රැයකින් ස්වයංක්‍රීය කෘතිම බුද්ධි (AI) ඇගයීම් මෙවලම් හඳුන්වා දීමත් සමඟ, ඉහළ තාක්ෂණික අධ්‍යාපන සේවා වේදිකාවක් දැඩි පාරිසරික අස්ථාවරත්වයකට මුහුණ දෙයි. සමාගමේ පවතින සංවර්ධන රාමුව සඳහා පුළුල් සන්ධිස්ථාන අනුමැතීන් සහිත වසර දෙකක දැඩි ජීවන චක්‍රයක් අවශ්‍ය වන අතර, එමඟින් ඔවුන්ගේ අවසාන නිෂ්පාදන වෙළඳපොළට පැමිණෙන විට යල් පැන ගිය ඒවා බවට පත් වේ. මෙම ඉහළ අස්ථාවර සහ අපැහැදිලි වෙළඳපල පරිසරය කළමනාකරණය කිරීම සඳහා, වේදිකාවේ නායකත්වය ඔවුන්ගේ රේඛීය ක්‍රියාවලි ආකෘති සම්පූර්ණයෙන්ම බැහැර කර, සෑම සති දෙකකට වරක් පද්ධති වර්ධක ලෙස වෙනස් කරන බහු-කාර්ය සාධන කණ්ඩායම් වෙත යොමු වීමට තීරණය කරයි.",
+                options: [
+                    "A) නිලධාරිවාදී ආකෘතිය (Bureaucratic model)",
+                    "B) විද්‍යාත්මක කළමනාකරණය (Scientific management)",
+                    "C) කඩිසර රාමුව (Agile framework)",
+                    "D) උස් ව්‍යුහාත්මක එන්ජිම (Tall structural engine)"
+                ],
+                correctAnswer: 2 // Index C
+            },
+            {
+                id: 3,
+                title: "ප්‍රශ්නය 03",
+                subtitle: "(බහුවරණ (තනි පිළිතුර))",
+                questionText: "කාර්මික පර්යේෂණ කණ්ඩායම් විසින් තමන්ව ඉතා සූක්ෂ්ම ලෙස නිරීක්ෂණය කරන බව එකලස් කිරීමේ රේඛාවේ සේවකයින්ට වැටහෙන විට නිෂ්පාදන වේගය සැලකිය යුතු ලෙස ඉහළ යන බව කර්මාන්තශාලා අධීක්ෂකවරයෙකු නිරීක්ෂණය කරයි. මෙම මනෝවිද්‍යාත්මක බලපෑම කුමක්ද?",
+                scenario: "කාර්මික ඵලදායිතා ඇගයීමකදී කර්මාන්තශාලා අධීක්ෂකවරයා නිරීක්ෂණය කරන්නේ පර්යේෂණ කණ්ඩායම තමන් දෙස නිරන්තරයෙන් අවධානයෙන් සිටින බව සේවකයන් වටහාගත් සැණින් ඔවුන්ගේ වැඩ කිරීමේ වේගය සැලකිය යුතු ලෙස ඉහළ නංවන බවයි.",
+                options: [
+                    "A) ටේලර්වාදී මාරුව (Taylorism shift)",
+                    "B) මෙහෙයුම් ලෙවරේජ්කරණය (Operating leverage)",
+                    "C) හෝතෝන් බලපෑම (Hawthorne effect)",
+                    "D) වාස්තවික පෙළගැස්ම (Objective alignment)"
+                ],
+                correctAnswer: 2 // Index C
+            },
+            {
+                id: 4,
+                title: "ප්‍රශ්නය 04",
+                subtitle: "(බහුවරණ (තනි පිළිතුර))",
+                questionText: "ඉතා පටු පාලන පරාසයක් (narrow span of control) සහිත සංවිධානයක් විසින් බහු කළමනාකරණ ස්ථර හඳුන්වා දෙනු ලබන අතර, එමඟින් දැඩි සන්නිවේදන ප්‍රමාදයන් සහ ඝර්ෂණ ඇති වේ. මෙම හැඩය විස්තර කරන්නේ කුමන විශේෂිත ව්‍යුහාත්මක වින්‍යාසයකින්ද?",
+                scenario: "සියලුම කළමනාකරණ මට්ටම් හරහා ඉතා පටු පාලන පරාසයකින් සමන්විත සංවිධානයක් අඛණ්ඩව අමතර අධීක්ෂණ ස්ථර හඳුන්වා දෙයි. කාලයත් සමඟ, මෙම බහු-මට්ටමේ ධුරාවලිය මගින් දැඩි සන්නිවේදන ප්‍රමාදයන්, පරිපාලනමය ඝර්ෂණය සහ මන්දගාමී විධායක තීරණ ගැනීම් ඇති කරයි.",
+                options: [
+                    "A) සමතල ව්‍යුහය (Flat structure)",
+                    "B) උස් ව්‍යුහය (Tall structure)",
+                    "C) අනුකෘති හරය (Matrix core)",
+                    "D) දෙමුහුන් ජාලය (Hybrid network)"
+                ],
+                correctAnswer: 1 // Index B
+            },
+            {
+                id: 5,
+                title: "ප්‍රශ්නය 05",
+                subtitle: "(බහුවරණ (තනි පිළිතුර))",
+                questionText: "විධායක නිලධාරිනියක් සිය සතිය ගත කරන්නේ ප්‍රතිපත්ති ලේඛන සත්‍යාපනය කිරීමට, ස්වයංක්‍රීය වැටුප් ලේඛන සැකසුම් පරීක්ෂා කිරීමට සහ නෛතික අනුකූලතා අත්පොත් විගණනය කිරීමටය. සංවිධානාත්මක එන්ජිම තුළ ඇය විසින් ප්‍රධාන වශයෙන් ඉටු කරනු ලබන්නේ කුමන මෙහෙයුම් භූමිකාවක්ද?",
+                scenario: "විධායක නිලධාරිනියක් සිය මුළු සේවා සතියම ගත කරන්නේ ව්‍යාපාරික ඒකක කිහිපයක් පුරා ප්‍රතිපත්ති අනුකූලතා ලොග සත්‍යාපනය කිරීම, ස්වයංක්‍රීය වැටුප් ලේඛන පද්ධති සැකසුම් පරීක්ෂා කිරීම සහ නෛතික අනුකූලතා අත්පොත් විගණනය කිරීම සඳහා ය.",
+                options: [
+                    "A) කළමනාකරු (Manager)",
+                    "B) පරිවර්තනීය නායකයා (Transformational leader)",
+                    "C) පරිපාලකයා (Administrator)",
+                    "D) කඩිසර පුහුණුකරු (Agile coach)"
+                ],
+                correctAnswer: 2 // Index C
+            }
+        ];
+
+        let currentStep = 1;
+        let timerSeconds = 17 * 60; // 17 minutes total
+        let timerInterval = null;
+        let selectedAnswers = {};
+        let isExamActive = false;
+
+        // Render Sinhala Questions
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q) => {
+                const qBlock = document.createElement('div');
+                qBlock.className = 'bg-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-xs space-y-3 sm:space-y-4';
+                
+                let optionsHtml = '';
+                q.options.forEach((opt, optIndex) => {
+                    const isChecked = selectedAnswers[q.id] === optIndex ? 'checked' : '';
+                    optionsHtml += `
+                        <label class="option-label text-xs sm:text-sm text-gray-800">
+                            <input type="radio" name="question_${q.id}" value="${optIndex}" ${isChecked} onchange="selectOption(${q.id}, ${optIndex})" class="custom-radio">
+                            <span class="pt-0.5 leading-snug">${opt}</span>
+                        </label>
+                    `;
+                });
+
+                qBlock.innerHTML = `
+                    <div class="font-bold text-gray-800 text-sm sm:text-base border-b border-gray-100 pb-2">
+                        ${q.title} <span class="font-normal text-gray-500 text-xs sm:text-sm">${q.subtitle}</span>
+                    </div>
+                    
+                    <p class="text-xs sm:text-sm font-medium text-gray-800 leading-relaxed">
+                        ${q.questionText}
+                    </p>
+
+                    <!-- Case Study Callout Box with Correct Sinhala Term -->
+                    <div class="case-study-box">
+                        <span class="block text-[10px] sm:text-[11px] font-bold text-[#0056b3] uppercase tracking-wider mb-1">
+                            සිද්ධි අධ්‍යයන අවස්ථාව (Case Study Scenario)
+                        </span>
+                        <p class="m-0 text-xs sm:text-sm text-[#2b303a] leading-relaxed">
+                            ${q.scenario}
+                        </p>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="space-y-2.5 my-2 sm:my-3">
+                        ${optionsHtml}
+                    </div>
+
+                    <!-- Clear Choice Option -->
+                    <div class="flex justify-end pt-1">
+                        <button type="button" onclick="clearChoice(${q.id})" class="text-xs text-blue-700 hover:text-blue-900 border border-blue-300 rounded px-3 py-1.5 bg-blue-50/50 hover:bg-blue-100/50 transition">
+                            ✕ තේරීම ඉවත් කරන්න (Clear Choice)
+                        </button>
+                    </div>
+                `;
+
+                container.appendChild(qBlock);
+            });
+        }
+
+        function selectOption(questionId, optionIndex) {
+            selectedAnswers[questionId] = optionIndex;
+        }
+
+        function clearChoice(questionId) {
+            delete selectedAnswers[questionId];
+            const radios = document.getElementsByName(`question_${questionId}`);
+            radios.forEach(r => r.checked = false);
+        }
+
+        function showStep(stepNum) {
+            currentStep = stepNum;
+            document.getElementById('view-step-1').classList.add('hidden');
+            document.getElementById('view-step-2').classList.add('hidden');
+            document.getElementById('view-step-3').classList.add('hidden');
+            document.getElementById('view-step-4').classList.add('hidden');
+
+            document.getElementById(`view-step-${stepNum}`).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToStep2() {
+            showStep(2);
+            startTimer();
+            document.getElementById('timer-bar-container').classList.remove('hidden');
+        }
+
+        function enterExam() {
+            renderQuestions();
+            showStep(3);
+            isExamActive = true;
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                updateTimerDisplay();
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitExam();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSeconds / 60);
+            const seconds = timerSeconds % 60;
+            const formatted = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('timer-display').textContent = formatted;
+        }
+
+        function triggerCancellationWarning() {
+            document.getElementById('cancellation-modal').classList.remove('hidden');
+        }
+
+        function confirmCancellation() {
+            document.getElementById('cancellation-modal').classList.add('hidden');
+            resetToInitial();
+        }
+
+        // Anti-cheat tab switch monitoring
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && (currentStep === 2 || currentStep === 3)) {
+                triggerCancellationWarning();
+            }
+        });
+
+        function submitExam() {
+            isExamActive = false;
+            clearInterval(timerInterval);
+            document.getElementById('timer-bar-container').classList.add('hidden');
+
+            let score = 0;
+            questionsData.forEach(q => {
+                if (selectedAnswers[q.id] === q.correctAnswer) {
+                    score++;
+                }
+            });
+
+            const percentage = Math.round((score / questionsData.length) * 100);
+            const passed = score >= 2; // 40% pass mark (2/5)
+
+            // Render Score Result
+            document.getElementById('score-display').textContent = `${score} / ${questionsData.length} Marks`;
+            document.getElementById('percentage-display').textContent = `ප්‍රතිශතය: ${percentage}%`;
+
+            const statusBadge = document.getElementById('status-badge');
+            const scoreIcon = document.getElementById('score-icon');
+
+            if (passed) {
+                statusBadge.textContent = "තත්ත්වය: සමත් (PASSED)";
+                statusBadge.className = "mt-3 inline-block px-4 py-1 rounded-full text-xs font-bold uppercase bg-emerald-100 text-emerald-800 border border-emerald-300";
+                scoreIcon.className = "text-4xl sm:text-5xl mb-3 text-emerald-600";
+                scoreIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+            } else {
+                statusBadge.textContent = "තත්ත්වය: අසමත් (FAILED)";
+                statusBadge.className = "mt-3 inline-block px-4 py-1 rounded-full text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-300";
+                scoreIcon.className = "text-4xl sm:text-5xl mb-3 text-rose-600";
+                scoreIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+            }
+
+            showStep(4);
+        }
+
+        function resetToInitial() {
+            clearInterval(timerInterval);
+            timerSeconds = 17 * 60;
+            selectedAnswers = {};
+            isExamActive = false;
+            document.getElementById('timer-bar-container').classList.add('hidden');
+            showStep(1);
+        }
+
+        // Initialize state on window load
+        window.onload = function() {
+            showStep(1);
+        };
+    </script>
+</body>
+</html>
